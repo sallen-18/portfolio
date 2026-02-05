@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="12" fill="#122112"/>
+  <text x="100" y="90" font-family="system-ui, sans-serif" font-size="48" fill="#4caf50" text-anchor="middle">&lt;/&gt;</text>
+  <text x="100" y="130" font-family="system-ui, sans-serif" font-size="16" fill="#8aab8a" text-anchor="middle">Portfolio</text>
+</svg>
