@@ -15,7 +15,23 @@ const projects = (await getCollection('projects', ({ data }) => !data.draft))
       This site is a collection of projects, architecture diagrams, and demo
       videos.
     </p>
+    <div class="view-counter">
+      <span id="view-count">—</span> visits
+    </div>
   </section>
+
+  <script>
+    const API_ENDPOINT = import.meta.env.PUBLIC_API_ENDPOINT;
+    
+    fetch(API_ENDPOINT)
+        .then(res => res.json())
+        .then(data => {
+            const body = typeof data.body === 'string' ? JSON.parse(data.body) : data.body;
+            const el = document.getElementById('view-count');
+            if (el) el.textContent = body.count.toLocaleString();
+        })
+        .catch(() => {})
+  </script>
 
   {projects.length > 0 && (
     <section class="recent">
@@ -72,6 +88,17 @@ const projects = (await getCollection('projects', ({ data }) => !data.draft))
     font-size: 1.15rem;
     max-width: 36rem;
     line-height: 1.8;
+  }
+
+  .view-counter {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  #view-count {
+    color: var(--color-accent);
+    font-weight: 600;
   }
 
   .recent {

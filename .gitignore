@@ -31,3 +31,53 @@ coverage
 
 # typescript
 *.tsbuildinfo
+
+
+# Terraform state files - NEVER commit these!
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Terraform directory
+.terraform/
+.terraform.lock.hcl
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Override files (local customization)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Variable files that might contain secrets
+*.tfvars
+*.tfvars.json
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# Lambda build artifacts
+lambda/*.zip
+*.zip
+
+# Lambda test responses
+response.json
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
+.env
+.env*
