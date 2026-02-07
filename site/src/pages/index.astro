@@ -20,18 +20,18 @@ const projects = (await getCollection('projects', ({ data }) => !data.draft))
     </div>
   </section>
 
-  <script>
+<script>
     const API_ENDPOINT = import.meta.env.PUBLIC_API_ENDPOINT;
     
     fetch(API_ENDPOINT)
         .then(res => res.json())
         .then(data => {
-            const body = typeof data.body === 'string' ? JSON.parse(data.body) : data.body;
+            // Simplified - data is already {"count": 12}
             const el = document.getElementById('view-count');
-            if (el) el.textContent = body.count.toLocaleString();
+            if (el) el.textContent = data.count.toLocaleString();
         })
-        .catch(() => {})
-  </script>
+        .catch(err => console.error('Visitor counter failed:', err));
+</script>
 
   {projects.length > 0 && (
     <section class="recent">
